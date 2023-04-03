@@ -1,11 +1,7 @@
 from secrets import choice
 from string import ascii_letters, digits, punctuation
 from argparse import ArgumentParser
-# define the alphabet parts
-letters = ascii_letters
-digits = digits
-special_chars = punctuation
-alphabet = ''
+
 def gen_mnemonic(password):
     # open the words file
     with open("words.txt", "r") as f:
@@ -23,12 +19,14 @@ def gen_mnemonic(password):
             mnemonic += char
         mnemonic += " "
     return mnemonic.strip()
+
 def gen_pwd(pwd_length):
     # generate a password string
     pwd = ''
     for i in range(pwd_length):
         pwd += choice(alphabet)
     return pwd
+
 # parsing arguments
 parser = ArgumentParser(description='Generator of mnemonics and passwords')
 parser.add_argument("-n", "--num", metavar='', type=int, default=1,
@@ -41,6 +39,7 @@ args = parser.parse_args()
 number_of_pwds = args.num
 pwd_length = args.length
 alphabet_parts = args.alphabet.split('_')
+alphabet = ''
 # definition of the alphabet
 for part in alphabet_parts:
     if part == 'letters' or part == 'l':
