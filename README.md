@@ -16,7 +16,11 @@ For example, to generate three passwords with a length of 16 characters and cont
    ```sh
    python pass.py -n 3 -l 16 -a l_d
    ```
+You can use the following bash script to redirect its output to a file:
 
+   ```sh
+   python pass.py -n 3 -l 16 -a l_d > output.txt
+   ```
 
 # Requirements
 This script requires Python 3 and the following modules:
