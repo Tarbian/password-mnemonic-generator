@@ -22,6 +22,12 @@ You can use the following bash script to redirect its output to a file:
    python pass.py -n 3 -l 16 -a l_d > output.txt
    ```
 
+You can use the following bash script to redirect only passwords to a file:
+
+   ```sh
+   python pass.py -n 3 -l 16 -a l_d | awk 'NR%2==1' > output.txt
+   ```
+
 # Requirements
 This script requires Python 3 and the following modules:
 
